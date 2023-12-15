@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "aiphoneintercomcorepkg",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AiphoneCorporation/AiphoneIntercomCorePkg.git",
+      "state" : {
+        "revision" : "c35ffeb393bab9c7b11fee92c7fa3389bfde050f",
+        "version" : "0.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}
