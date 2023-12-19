@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ACECBDAF2B2D0A3F008C77B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDAE2B2D0A3F008C77B4 /* AppDelegate.swift */; };
 		ACECBDB12B2D0A3F008C77B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */; };
-		ACECBDB32B2D0A3F008C77B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDB22B2D0A3F008C77B4 /* ViewController.swift */; };
 		ACECBDB62B2D0A3F008C77B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDB42B2D0A3F008C77B4 /* Main.storyboard */; };
 		ACECBDB82B2D0A41008C77B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDB72B2D0A41008C77B4 /* Assets.xcassets */; };
 		ACECBDBB2B2D0A41008C77B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDB92B2D0A41008C77B4 /* LaunchScreen.storyboard */; };
@@ -17,6 +16,9 @@
 		ACECBDD02B2D0A41008C77B4 /* IXGSDKDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */; };
 		ACECBDD22B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */; };
 		ACECBDE02B2D0FF6008C77B4 /* AiphoneIntercomCorePkg in Frameworks */ = {isa = PBXBuildFile; productRef = ACECBDDF2B2D0FF6008C77B4 /* AiphoneIntercomCorePkg */; };
+		CBEC27902B2D19D9003FBC6D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */; };
+		CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */; };
+		CBEC27962B320C7A003FBC6D /* StationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27952B320C7A003FBC6D /* StationConfirmationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,6 @@
 		ACECBDAB2B2D0A3F008C77B4 /* IXGSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IXGSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACECBDAE2B2D0A3F008C77B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ACECBDB22B2D0A3F008C77B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ACECBDB52B2D0A3F008C77B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACECBDB72B2D0A41008C77B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACECBDBA2B2D0A41008C77B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +51,9 @@
 		ACECBDCB2B2D0A41008C77B4 /* IXGSDKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IXGSDKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITests.swift; sourceTree = "<group>"; };
 		ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotSelectorTableViewController.swift; sourceTree = "<group>"; };
+		CBEC27952B320C7A003FBC6D /* StationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationConfirmationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +107,13 @@
 			children = (
 				ACECBDAE2B2D0A3F008C77B4 /* AppDelegate.swift */,
 				ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */,
-				ACECBDB22B2D0A3F008C77B4 /* ViewController.swift */,
 				ACECBDB42B2D0A3F008C77B4 /* Main.storyboard */,
+				CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */,
 				ACECBDB72B2D0A41008C77B4 /* Assets.xcassets */,
 				ACECBDB92B2D0A41008C77B4 /* LaunchScreen.storyboard */,
 				ACECBDBC2B2D0A41008C77B4 /* Info.plist */,
+				CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */,
+				CBEC27952B320C7A003FBC6D /* StationConfirmationViewController.swift */,
 			);
 			path = IXGSDKDemo;
 			sourceTree = "<group>";
@@ -266,9 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACECBDB32B2D0A3F008C77B4 /* ViewController.swift in Sources */,
 				ACECBDAF2B2D0A3F008C77B4 /* AppDelegate.swift in Sources */,
 				ACECBDB12B2D0A3F008C77B4 /* SceneDelegate.swift in Sources */,
+				CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */,
+				CBEC27902B2D19D9003FBC6D /* HomeScreen.swift in Sources */,
+				CBEC27962B320C7A003FBC6D /* StationConfirmationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +458,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48MUA29SAN;
+				DEVELOPMENT_TEAM = MY2DDQXDRN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IXGSDKDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -458,7 +466,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,7 +487,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48MUA29SAN;
+				DEVELOPMENT_TEAM = MY2DDQXDRN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IXGSDKDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -487,7 +495,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
