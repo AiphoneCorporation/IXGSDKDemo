@@ -10,8 +10,8 @@ import AiphoneIntercomCorePkg
 
 class SlotSelectorTableViewController: UITableViewController {
     
-    var appSlots: [AppSlot]!
-    var selectedApp: AppSlot!
+    var mobileAppStationsList: [MobileAppStation]!
+    var selectedStation: MobileAppStation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,38 +23,38 @@ class SlotSelectorTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 1//should only ever be 1 section of apps. cant select station in more than one unit at a time
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appSlots.count
+        return mobileAppStationsList.count//should either be 1 or 8, but we accept any
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "appSlotCell", for: indexPath)
-        let appSlot = appSlots[indexPath.row]
+        let stationListSlot = mobileAppStationsList[indexPath.row]//a given slot in the list
         
-        if(appSlot.isOccupied){ cell.textLabel?.text = appSlot.stationName }
-        else { cell.textLabel?.text = "Open slot \(indexPath.row + 1)" }
+        if(stationListSlot.isOccupied){ cell.textLabel?.text = stationListSlot.name }//if the station tied to that slot is occupied, update the name
+        else { cell.textLabel?.text = "Open slot \(indexPath.row + 1)" }//otherwise set it to generic open slot text
         
-        cell.detailTextLabel?.text = String(appSlot.stationNumber) //TODO: add custom slot display with hint and assign hint here
+        cell.detailTextLabel?.text = String(stationListSlot.number) //TODO: add custom slot display with hint and assign hint here
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let slot = appSlots[indexPath.row]
+        let slot = mobileAppStationsList[indexPath.row]
         
-        if(slot.isOccupied) { return }
+        if(slot.isOccupied) { return }//if user tapped on slot already occupied, do nothing
             
-        selectedApp = slot
+        selectedStation = slot//otherwise update the selected slot for confirmation screen
         
-        performSegue(withIdentifier: Segue.slotDetails.rawValue, sender: self)
+        performSegue(withIdentifier: Segue.slotDetails.rawValue, sender: self)//and move on to said screen
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? StationConfirmationViewController else { return }
-        vc.selectedSlot = selectedApp
+        vc.selectedSlot = selectedStation//DI selected app for station confirmation screen
     }
 }
 

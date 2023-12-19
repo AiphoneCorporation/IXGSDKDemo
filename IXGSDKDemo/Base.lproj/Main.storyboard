@@ -43,9 +43,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="ACU-6T-WRR" kind="show" identifier="confirmStation" id="phQ-W7-5oz"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -54,6 +51,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="8w4-AI-c7R"/>
+                    <connections>
+                        <segue destination="ACU-6T-WRR" kind="show" identifier="confirmStation" id="Veg-os-Zge"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kz-E6-l9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,13 +85,13 @@
                                 <rect key="frame" x="116" y="293" width="161" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vip-PI-9xS" userLabel="confirmationButton">
-                                <rect key="frame" x="159" y="633" width="75" height="35"/>
+                                <rect key="frame" x="153" y="633" width="87" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Register"/>
                                 <connections>
                                     <action selector="confirmationButtonTapped:" destination="ACU-6T-WRR" eventType="touchUpInside" id="bRr-ZW-S2I"/>
                                 </connections>
