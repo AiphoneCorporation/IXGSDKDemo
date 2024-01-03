@@ -11,14 +11,12 @@ import AiphoneIntercomCorePkg
 class StationsTableViewController: UITableViewController {
     var stations = [Station]()
     let stationsManager = StationsManager()
-    
+
+    static let cellId = "stationListCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let nib = UINib(nibName: "StationCellView", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: StationsTableViewCell.cellIdentifier)
-        
+
         let response = stationsManager.fetchStations(auth: "TODO")
         switch response {
         case .success(let stations):
@@ -30,40 +28,34 @@ class StationsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Building Name"
+        default:
+            return ""
+        }
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return stations.count//TODO: size of stations list
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StationsTableViewCell.cellIdentifier, for: indexPath) as? StationsTableViewCell else { return UITableViewCell() }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: StationsTableViewController.cellId, for: indexPath)
         if let station = stations[safeIndex: indexPath.row] {
-            
-            // Configure the cell...
-            cell.configure(station: station)
+            cell.textLabel?.text = station.name
+            cell.detailTextLabel?.text = String(station.unitNumber)
         }
-        
 
+        cell.imageView?.image = UIImage(systemName: "hifispeaker.fill")
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension Array {

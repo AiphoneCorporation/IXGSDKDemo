@@ -21,8 +21,6 @@
 		CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */; };
 		CBE20C042B44ABFF00C66936 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C032B44ABFF00C66936 /* HistoryTableViewController.swift */; };
 		CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */; };
-		CBE20C082B45EEE000C66936 /* StationCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE20C072B45EEE000C66936 /* StationCellView.xib */; };
-		CBE20C0C2B45F0F800C66936 /* StationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C0B2B45F0F800C66936 /* StationsTableViewCell.swift */; };
 		CBEC27902B2D19D9003FBC6D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */; };
 		CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */; };
 		CBEC27962B320C7A003FBC6D /* RegistrationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */; };
@@ -63,8 +61,6 @@
 		CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C032B44ABFF00C66936 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		CBE20C072B45EEE000C66936 /* StationCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCellView.xib; sourceTree = "<group>"; };
-		CBE20C0B2B45F0F800C66936 /* StationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsTableViewCell.swift; sourceTree = "<group>"; };
 		CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotSelectorTableViewController.swift; sourceTree = "<group>"; };
 		CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmationViewController.swift; sourceTree = "<group>"; };
@@ -166,8 +162,6 @@
 		CBE20C0A2B45F0CA00C66936 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CBE20C072B45EEE000C66936 /* StationCellView.xib */,
-				CBE20C0B2B45F0F800C66936 /* StationsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,7 +277,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACECBDBB2B2D0A41008C77B4 /* LaunchScreen.storyboard in Resources */,
-				CBE20C082B45EEE000C66936 /* StationCellView.xib in Resources */,
 				ACECBDB82B2D0A41008C77B4 /* Assets.xcassets in Resources */,
 				ACECBDB62B2D0A3F008C77B4 /* Main.storyboard in Resources */,
 			);
@@ -320,7 +313,6 @@
 				CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */,
 				CBE20C002B44AA8B00C66936 /* StationsTableViewController.swift in Sources */,
 				CBEC27962B320C7A003FBC6D /* RegistrationConfirmationViewController.swift in Sources */,
-				CBE20C0C2B45F0F800C66936 /* StationsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
