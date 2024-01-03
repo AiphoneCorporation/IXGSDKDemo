@@ -25,6 +25,22 @@ final class HomeScreen: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TODO: REMOVE!!!!
+        Task {
+            let qrResponse = await registrationManager.send(qrCode: "qrString")//api response after we send string from QR
+            
+            switch qrResponse {
+            case .success(let stationList)://if QR was valid and returned a list of slots
+                mobileAppStationsList = stationList//save slots for next screen
+                performSegue(withIdentifier: Segue.appSlots.rawValue, sender: self)//and transition
+                return
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video)//checks if device has camera capable of video, saves it if so
         else {
             print("Missing video device")
@@ -102,6 +118,7 @@ final class HomeScreen: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? SlotSelectorTableViewController else { return }
         vc.mobileAppStationsList = mobileAppStationsList//sets the list of slots for the user to be able to select from
+        vc.registrationManager = registrationManager
     }
 }
 

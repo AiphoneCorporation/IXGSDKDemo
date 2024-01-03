@@ -8,8 +8,9 @@
 import UIKit
 import AiphoneIntercomCorePkg
 
-class StationConfirmationViewController: UIViewController, UITextFieldDelegate {
+class RegistrationConfirmationViewController: UIViewController, UITextFieldDelegate {
     var selectedSlot: MobileAppStation!
+    var registrationManager: RegistrationManager!
     @IBOutlet weak var stationNameTextField: UITextField!
     @IBOutlet weak var stationNumberLabel: UILabel!
 
@@ -34,18 +35,21 @@ class StationConfirmationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func confirmationButtonTapped(_ sender: Any) {
-        //api.register(selectedSlot)
-        //transition to next screen
+        Task {
+            let result = await registrationManager.register(appSlot: selectedSlot)
+            switch result {
+            case .success(let message):
+                print(message)
+                performSegue(withIdentifier: Segue.registrationConfirmed.rawValue, sender: self)//and move on to said screen
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
-    
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension RegistrationConfirmationViewController{
+    enum Segue: String{
+        case registrationConfirmed = "registrationFinished"
     }
-    */
-    
 }

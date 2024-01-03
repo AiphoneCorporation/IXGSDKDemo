@@ -9,7 +9,7 @@ import UIKit
 import AiphoneIntercomCorePkg
 
 class SlotSelectorTableViewController: UITableViewController {
-    
+    var registrationManager: RegistrationManager!
     var mobileAppStationsList: [MobileAppStation]!
     var selectedStation: MobileAppStation!
 
@@ -53,8 +53,9 @@ class SlotSelectorTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let vc = segue.destination as? StationConfirmationViewController else { return }
+        guard let vc = segue.destination as? RegistrationConfirmationViewController else { return }
         vc.selectedSlot = selectedStation//DI selected app for station confirmation screen
+        vc.registrationManager = registrationManager
     }
 }
 

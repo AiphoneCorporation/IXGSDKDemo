@@ -15,10 +15,17 @@
 		ACECBDC62B2D0A41008C77B4 /* IXGSDKDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDC52B2D0A41008C77B4 /* IXGSDKDemoTests.swift */; };
 		ACECBDD02B2D0A41008C77B4 /* IXGSDKDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */; };
 		ACECBDD22B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */; };
-		ACECBDE02B2D0FF6008C77B4 /* AiphoneIntercomCorePkg in Frameworks */ = {isa = PBXBuildFile; productRef = ACECBDDF2B2D0FF6008C77B4 /* AiphoneIntercomCorePkg */; };
+		CBE20BFA2B44933200C66936 /* AiphoneIntercomCorePkg in Frameworks */ = {isa = PBXBuildFile; productRef = CBE20BF92B44933200C66936 /* AiphoneIntercomCorePkg */; };
+		CBE20BFE2B44A19C00C66936 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20BFD2B44A19C00C66936 /* TabBarViewController.swift */; };
+		CBE20C002B44AA8B00C66936 /* StationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */; };
+		CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */; };
+		CBE20C042B44ABFF00C66936 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C032B44ABFF00C66936 /* HistoryTableViewController.swift */; };
+		CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */; };
+		CBE20C082B45EEE000C66936 /* StationCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE20C072B45EEE000C66936 /* StationCellView.xib */; };
+		CBE20C0C2B45F0F800C66936 /* StationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C0B2B45F0F800C66936 /* StationsTableViewCell.swift */; };
 		CBEC27902B2D19D9003FBC6D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */; };
 		CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */; };
-		CBEC27962B320C7A003FBC6D /* StationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27952B320C7A003FBC6D /* StationConfirmationViewController.swift */; };
+		CBEC27962B320C7A003FBC6D /* RegistrationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +58,16 @@
 		ACECBDCB2B2D0A41008C77B4 /* IXGSDKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IXGSDKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITests.swift; sourceTree = "<group>"; };
 		ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBE20BFD2B44A19C00C66936 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsTableViewController.swift; sourceTree = "<group>"; };
+		CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
+		CBE20C032B44ABFF00C66936 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		CBE20C072B45EEE000C66936 /* StationCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCellView.xib; sourceTree = "<group>"; };
+		CBE20C0B2B45F0F800C66936 /* StationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsTableViewCell.swift; sourceTree = "<group>"; };
 		CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotSelectorTableViewController.swift; sourceTree = "<group>"; };
-		CBEC27952B320C7A003FBC6D /* StationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationConfirmationViewController.swift; sourceTree = "<group>"; };
+		CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACECBDE02B2D0FF6008C77B4 /* AiphoneIntercomCorePkg in Frameworks */,
+				CBE20BFA2B44933200C66936 /* AiphoneIntercomCorePkg in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,14 +120,13 @@
 			isa = PBXGroup;
 			children = (
 				ACECBDAE2B2D0A3F008C77B4 /* AppDelegate.swift */,
-				ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */,
-				ACECBDB42B2D0A3F008C77B4 /* Main.storyboard */,
-				CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */,
 				ACECBDB72B2D0A41008C77B4 /* Assets.xcassets */,
-				ACECBDB92B2D0A41008C77B4 /* LaunchScreen.storyboard */,
 				ACECBDBC2B2D0A41008C77B4 /* Info.plist */,
-				CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */,
-				CBEC27952B320C7A003FBC6D /* StationConfirmationViewController.swift */,
+				ACECBDB92B2D0A41008C77B4 /* LaunchScreen.storyboard */,
+				ACECBDB42B2D0A3F008C77B4 /* Main.storyboard */,
+				ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */,
+				CBE20C092B45F0AD00C66936 /* ViewControllers */,
+				CBE20C0A2B45F0CA00C66936 /* Views */,
 			);
 			path = IXGSDKDemo;
 			sourceTree = "<group>";
@@ -135,6 +148,30 @@
 			path = IXGSDKDemoUITests;
 			sourceTree = "<group>";
 		};
+		CBE20C092B45F0AD00C66936 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBE20BFD2B44A19C00C66936 /* TabBarViewController.swift */,
+				CBE20C032B44ABFF00C66936 /* HistoryTableViewController.swift */,
+				CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */,
+				CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */,
+				CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */,
+				CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */,
+				CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */,
+				CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CBE20C0A2B45F0CA00C66936 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBE20C072B45EEE000C66936 /* StationCellView.xib */,
+				CBE20C0B2B45F0F800C66936 /* StationsTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,7 +189,7 @@
 			);
 			name = IXGSDKDemo;
 			packageProductDependencies = (
-				ACECBDDF2B2D0FF6008C77B4 /* AiphoneIntercomCorePkg */,
+				CBE20BF92B44933200C66936 /* AiphoneIntercomCorePkg */,
 			);
 			productName = IXGSDKDemo;
 			productReference = ACECBDAB2B2D0A3F008C77B4 /* IXGSDKDemo.app */;
@@ -227,7 +264,7 @@
 			);
 			mainGroup = ACECBDA22B2D0A3F008C77B4;
 			packageReferences = (
-				ACECBDDE2B2D0FF6008C77B4 /* XCRemoteSwiftPackageReference "AiphoneIntercomCorePkg" */,
+				CBE20BF82B44933200C66936 /* XCRemoteSwiftPackageReference "AiphoneIntercomCorePkg" */,
 			);
 			productRefGroup = ACECBDAC2B2D0A3F008C77B4 /* Products */;
 			projectDirPath = "";
@@ -246,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACECBDBB2B2D0A41008C77B4 /* LaunchScreen.storyboard in Resources */,
+				CBE20C082B45EEE000C66936 /* StationCellView.xib in Resources */,
 				ACECBDB82B2D0A41008C77B4 /* Assets.xcassets in Resources */,
 				ACECBDB62B2D0A3F008C77B4 /* Main.storyboard in Resources */,
 			);
@@ -276,7 +314,13 @@
 				ACECBDB12B2D0A3F008C77B4 /* SceneDelegate.swift in Sources */,
 				CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */,
 				CBEC27902B2D19D9003FBC6D /* HomeScreen.swift in Sources */,
-				CBEC27962B320C7A003FBC6D /* StationConfirmationViewController.swift in Sources */,
+				CBE20BFE2B44A19C00C66936 /* TabBarViewController.swift in Sources */,
+				CBE20C042B44ABFF00C66936 /* HistoryTableViewController.swift in Sources */,
+				CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */,
+				CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */,
+				CBE20C002B44AA8B00C66936 /* StationsTableViewController.swift in Sources */,
+				CBEC27962B320C7A003FBC6D /* RegistrationConfirmationViewController.swift in Sources */,
+				CBE20C0C2B45F0F800C66936 /* StationsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +505,7 @@
 				DEVELOPMENT_TEAM = MY2DDQXDRN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IXGSDKDemo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Gimme Camera PLZ KTHKS";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -472,7 +517,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiphone.IXGSDKDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiphone.IXGSDKDemo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -490,6 +535,7 @@
 				DEVELOPMENT_TEAM = MY2DDQXDRN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IXGSDKDemo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Gimme Camera PLZ KTHKS";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -501,7 +547,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiphone.IXGSDKDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiphone.IXGSDKDemo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -627,20 +673,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ACECBDDE2B2D0FF6008C77B4 /* XCRemoteSwiftPackageReference "AiphoneIntercomCorePkg" */ = {
+		CBE20BF82B44933200C66936 /* XCRemoteSwiftPackageReference "AiphoneIntercomCorePkg" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AiphoneCorporation/AiphoneIntercomCorePkg.git";
+			repositoryURL = "https://github.com/AiphoneCorporation/AiphoneIntercomCorePkg";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				minimumVersion = 0.0.12;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		ACECBDDF2B2D0FF6008C77B4 /* AiphoneIntercomCorePkg */ = {
+		CBE20BF92B44933200C66936 /* AiphoneIntercomCorePkg */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ACECBDDE2B2D0FF6008C77B4 /* XCRemoteSwiftPackageReference "AiphoneIntercomCorePkg" */;
+			package = CBE20BF82B44933200C66936 /* XCRemoteSwiftPackageReference "AiphoneIntercomCorePkg" */;
 			productName = AiphoneIntercomCorePkg;
 		};
 /* End XCSwiftPackageProductDependency section */
