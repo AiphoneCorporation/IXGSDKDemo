@@ -16,12 +16,11 @@
 		ACECBDD02B2D0A41008C77B4 /* IXGSDKDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */; };
 		ACECBDD22B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */; };
 		CBE20BFA2B44933200C66936 /* AiphoneIntercomCorePkg in Frameworks */ = {isa = PBXBuildFile; productRef = CBE20BF92B44933200C66936 /* AiphoneIntercomCorePkg */; };
-		CBE20BFE2B44A19C00C66936 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20BFD2B44A19C00C66936 /* TabBarViewController.swift */; };
 		CBE20C002B44AA8B00C66936 /* StationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */; };
 		CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */; };
 		CBE20C042B44ABFF00C66936 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C032B44ABFF00C66936 /* HistoryTableViewController.swift */; };
 		CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */; };
-		CBEC27902B2D19D9003FBC6D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */; };
+		CBEC27902B2D19D9003FBC6D /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC278F2B2D19D9003FBC6D /* QRScannerViewController.swift */; };
 		CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */; };
 		CBEC27962B320C7A003FBC6D /* RegistrationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -56,12 +55,11 @@
 		ACECBDCB2B2D0A41008C77B4 /* IXGSDKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IXGSDKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITests.swift; sourceTree = "<group>"; };
 		ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CBE20BFD2B44A19C00C66936 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C032B44ABFF00C66936 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		CBEC278F2B2D19D9003FBC6D /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotSelectorTableViewController.swift; sourceTree = "<group>"; };
 		CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,7 +120,6 @@
 				ACECBDB42B2D0A3F008C77B4 /* Main.storyboard */,
 				ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */,
 				CBE20C092B45F0AD00C66936 /* ViewControllers */,
-				CBE20C0A2B45F0CA00C66936 /* Views */,
 			);
 			path = IXGSDKDemo;
 			sourceTree = "<group>";
@@ -147,9 +144,8 @@
 		CBE20C092B45F0AD00C66936 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CBE20BFD2B44A19C00C66936 /* TabBarViewController.swift */,
 				CBE20C032B44ABFF00C66936 /* HistoryTableViewController.swift */,
-				CBEC278F2B2D19D9003FBC6D /* HomeScreen.swift */,
+				CBEC278F2B2D19D9003FBC6D /* QRScannerViewController.swift */,
 				CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */,
 				CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */,
 				CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */,
@@ -157,13 +153,6 @@
 				CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		CBE20C0A2B45F0CA00C66936 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,8 +295,7 @@
 				ACECBDAF2B2D0A3F008C77B4 /* AppDelegate.swift in Sources */,
 				ACECBDB12B2D0A3F008C77B4 /* SceneDelegate.swift in Sources */,
 				CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */,
-				CBEC27902B2D19D9003FBC6D /* HomeScreen.swift in Sources */,
-				CBE20BFE2B44A19C00C66936 /* TabBarViewController.swift in Sources */,
+				CBEC27902B2D19D9003FBC6D /* QRScannerViewController.swift in Sources */,
 				CBE20C042B44ABFF00C66936 /* HistoryTableViewController.swift in Sources */,
 				CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */,
 				CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */,

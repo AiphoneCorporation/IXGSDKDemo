@@ -10,8 +10,8 @@ import AiphoneIntercomCorePkg
 
 class SlotSelectorTableViewController: UITableViewController {
     var registrationManager: RegistrationManager!
-    var mobileAppStationsList: [MobileAppStation]!
-    var selectedStation: MobileAppStation!
+    var mobileAppStationsList: [IXGMobileAppStation]!
+    var selectedStation: IXGMobileAppStation!
 
     override func viewDidLoad() {
         super.viewDidLoad()

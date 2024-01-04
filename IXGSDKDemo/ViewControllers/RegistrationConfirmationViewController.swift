@@ -9,7 +9,7 @@ import UIKit
 import AiphoneIntercomCorePkg
 
 class RegistrationConfirmationViewController: UIViewController, UITextFieldDelegate {
-    var selectedSlot: MobileAppStation!
+    var selectedSlot: IXGMobileAppStation!
     var registrationManager: RegistrationManager!
     @IBOutlet weak var stationNameTextField: UITextField!
     @IBOutlet weak var stationNumberLabel: UILabel!

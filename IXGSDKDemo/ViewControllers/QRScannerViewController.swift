@@ -10,10 +10,10 @@ import UIKit
 import AVFoundation
 import AiphoneIntercomCorePkg
 
-final class HomeScreen: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var mobileAppStationsList: [MobileAppStation] = []
+    var mobileAppStationsList: [IXGMobileAppStation] = []
     
     lazy var registrationManager: RegistrationManager = {//IXG SDK registration manager
         let session = URLSession.shared//custom network session
@@ -24,21 +24,6 @@ final class HomeScreen: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TODO: REMOVE!!!!
-        Task {
-            let qrResponse = await registrationManager.send(qrCode: "qrString")//api response after we send string from QR
-            
-            switch qrResponse {
-            case .success(let stationList)://if QR was valid and returned a list of slots
-                mobileAppStationsList = stationList//save slots for next screen
-                performSegue(withIdentifier: Segue.appSlots.rawValue, sender: self)//and transition
-                return
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
         
         
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video)//checks if device has camera capable of video, saves it if so
@@ -122,7 +107,7 @@ final class HomeScreen: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     }
 }
 
-extension HomeScreen{
+extension QRScannerViewController{
     enum Segue: String{
         case appSlots = "displayAppSlots" //screen with list of slots for user to select
     }
