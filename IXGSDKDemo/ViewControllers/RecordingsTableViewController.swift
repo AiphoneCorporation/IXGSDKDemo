@@ -63,7 +63,7 @@ class RecordingsTableViewController: UITableViewController {
 }
 
 extension RecordingsTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func configureSearchController(){
+    func configureSearchController() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.autocorrectionType = .no
@@ -71,7 +71,6 @@ extension RecordingsTableViewController: UISearchResultsUpdating, UISearchBarDel
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.enablesReturnKeyAutomatically = false
         searchController.searchBar.returnKeyType = .search
-        searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
@@ -86,7 +85,7 @@ extension RecordingsTableViewController: UISearchResultsUpdating, UISearchBarDel
         tableView.reloadData()
     }
     
-    func filterRecordingsBySearchScope(scope: RecordingsFilterScope){
+    func filterRecordingsBySearchScope(scope: RecordingsFilterScope) {
         scopeButton = scope
         
         filteredRecordings = allRecordings.filter({ record in
@@ -103,5 +102,4 @@ extension RecordingsTableViewController: UISearchResultsUpdating, UISearchBarDel
         case auto
         case manual
     }
-    
 }
