@@ -7,25 +7,35 @@
 
 import UIKit
 import AiphoneIntercomCorePkg
+import SwiftUI
 
 class RecordingsTableViewController: UITableViewController {
+    let callRecordsManager = CallRecordsManager()
     let searchController = UISearchController(searchResultsController: nil)
-    let scopeButtons = RecordingsFilterScope.allCases.map{ $0 }
-    let allRecordings = [
-        CallRecord(unitName: "kathy", stationName: "Front Door", unitNumber: 1001, callStarted: Date(), duration: 10, isManual: true),
-        CallRecord(unitName: "jo", stationName: "back Door", unitNumber: 1002, callStarted: Date(), duration: 15, isManual: false),
-        CallRecord(unitName: "steve", stationName: "side Door", unitNumber: 1003, callStarted: Date(), duration: 5, isManual: false),
-        CallRecord(unitName: "bob", stationName: "closet", unitNumber: 1004, callStarted: Date(), duration: 6, isManual: false),
-        CallRecord(unitName: "cody", stationName: "west hall", unitNumber: 1005, callStarted: Date(), duration: 900, isManual: true)
-    ]
-    private(set) var filteredRecordings: [CallRecord] = []
-    private var scopeButton: RecordingsFilterScope = .auto
+    let scopeButtons = RecordsFilterScope.allCases.map{ $0 }
+    var allRecords = [CallRecord]()
+    
+    
+    private(set) var filteredRecords: [CallRecord] = []
+    private var scopeButton: RecordsFilterScope = .all
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configureSearchController()
+        Task{
+            let response = await callRecordsManager.fetchRecords()
+            switch response {
+            case .success(let records):
+                self.allRecords = records
+                self.filteredRecords = allRecords
+                tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
         
+        self.configureSearchController()
     }
 
     // MARK: - Table view data source
@@ -35,17 +45,28 @@ class RecordingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allRecordings.count
+        return filteredRecords.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordingsListCell", for: indexPath)
 
-        let recording = allRecordings[indexPath.row]
+        let recording = filteredRecords[indexPath.row]
         
         // Configure the cell...
-        cell.textLabel?.text = "Call with \(recording.stationName) at time \(recording.callStarted)"
+        let color = if(recording.type == .missed) { UIColor.red } else { UIColor.black }
+        
+        let textLabel = cell.textLabel
+        let detailTextLabel = cell.detailTextLabel
+        
+        textLabel?.text = recording.stationName
+        textLabel?.textColor = color
+        
+        detailTextLabel?.text = recording.callStarted.formatted(date: .abbreviated, time: .shortened)
+        detailTextLabel?.textColor = color
+        
+        if(recording.type == .outgoing) { cell.imageView?.isHidden = false }
 
         return cell
     }
@@ -74,32 +95,39 @@ extension RecordingsTableViewController: UISearchResultsUpdating, UISearchBarDel
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        searchController.searchBar.scopeButtonTitles = ["Auto", "Manual"]
+        searchController.searchBar.scopeButtonTitles = ["All", "Manual Rec.", "Missed Call"]
         searchController.searchBar.showsScopeBar = true
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         let selectedScopeButtonIndex = searchController.searchBar.selectedScopeButtonIndex
         let buttonScope = scopeButtons[selectedScopeButtonIndex]
-        filterRecordingsBySearchScope(scope: buttonScope)
+        filterRecordsBySearchScope(scope: buttonScope)
         tableView.reloadData()
     }
     
-    func filterRecordingsBySearchScope(scope: RecordingsFilterScope) {
+    func filterRecordsBySearchScope(scope: RecordsFilterScope) {
         scopeButton = scope
         
-        filteredRecordings = allRecordings.filter({ record in
-            switch scope {
-            case .auto:
-                return record.isManual == false
-            case .manual:
-                return record.isManual == true
-            }
-        })
+        filteredRecords = allRecords.filter{ $0.isMatch(for: scope) }
     }
-    
-    enum RecordingsFilterScope: CaseIterable {
-        case auto
-        case manual
+}
+
+enum RecordsFilterScope: CaseIterable {
+    case all
+    case manual
+    case missed
+}
+
+extension CallRecord{
+    func isMatch(for scope: RecordsFilterScope) -> Bool {
+        switch scope {
+        case .all:
+            return true
+        case .manual:
+            return self.isManualRecording
+        case .missed:
+            return self.type == .missed
+        }
     }
 }
