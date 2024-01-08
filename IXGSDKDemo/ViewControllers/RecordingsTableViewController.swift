@@ -67,6 +67,7 @@ class RecordingsTableViewController: UITableViewController {
         detailTextLabel?.textColor = color
         
         if(recording.type == .outgoing) { cell.imageView?.isHidden = false }
+        else { cell.imageView?.isHidden = true }//required because the state is tied to cell position, not cell object
 
         return cell
     }
