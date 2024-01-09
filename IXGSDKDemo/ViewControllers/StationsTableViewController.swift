@@ -11,6 +11,8 @@ import AiphoneIntercomCorePkg
 class StationsTableViewController: UITableViewController {
     var units = [IXGUnit]()
     let stationsManager = StationsManager()
+    let searchController = UISearchController(searchResultsController: nil)//handles search bar and tab bar
+    var filteredUnits = [IXGUnit]()
 
     static let cellId = "stationListCell"
 
@@ -21,26 +23,29 @@ class StationsTableViewController: UITableViewController {
         switch response {
         case .success(let units):
             self.units = units
+            filteredUnits = units
         case .failure(let error):
             print(error.localizedDescription)
         }
+        
+        self.configureSearchController()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let unit = units[safeIndex: section] {
+        if let unit = filteredUnits[safeIndex: section] {
             return String("Unit \(unit.number)")
         }
         else { return "" }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return units.count
+        return filteredUnits.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let unit = units[safeIndex: section] {
+        if let unit = filteredUnits[safeIndex: section] {
             return unit.stations.count
         }
         else { return 0 }
@@ -49,7 +54,7 @@ class StationsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StationsTableViewController.cellId, for: indexPath)
-        if let station = units[safeIndex: indexPath.section]?.stations[safeIndex: indexPath.row] {
+        if let station = filteredUnits[safeIndex: indexPath.section]?.stations[safeIndex: indexPath.row] {
             cell.textLabel?.text = station.name
 
             cell.detailTextLabel?.text = station.capabilityDescription
@@ -59,7 +64,7 @@ class StationsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let unit = units[safeIndex: indexPath.section] else { return }
+        guard let unit = filteredUnits[safeIndex: indexPath.section] else { return }
         guard let station = unit.stations[safeIndex: indexPath.row] else { return }
         let stationTitle = "\(station.name) in Unit \(String(unit.number))"
             
@@ -99,5 +104,36 @@ extension IXGStation {
         case false:
             return "Audio Only"
         }
+    }
+}
+
+extension StationsTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func configureSearchController() {
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.showsScopeBar = true
+        searchController.searchBar.returnKeyType = .search
+        searchController.searchBar.autocorrectionType = .no
+        searchController.searchBar.autocapitalizationType = .none
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let selectedScopeButtonIndex = searchController.searchBar.selectedScopeButtonIndex//current tab position
+        filteredUnits = units.filter{$0.filterUnitBySearchText(searchText: searchController.searchBar.text ?? "")}//filters list based on scope
+        tableView.reloadData()//updates the list now that we have new filter perameters
+    }
+}
+
+extension IXGUnit{
+    //filter the units so that only units that have stations that match the search text are valid
+    func filterUnitBySearchText(searchText: String) -> Bool {
+        return !stations.filter { station in
+            return searchText.isEmpty || station.name.lowercased().contains(searchText.lowercased())
+        }.isEmpty
     }
 }
