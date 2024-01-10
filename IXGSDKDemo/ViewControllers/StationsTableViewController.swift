@@ -9,7 +9,7 @@ import UIKit
 import AiphoneIntercomCorePkg
 
 class StationsTableViewController: UITableViewController {
-    var units = [IXGUnit]()
+    var allUnits = [IXGUnit]()
     let stationsManager = StationsManager()
     let searchController = UISearchController(searchResultsController: nil)//handles search bar and tab bar
     var filteredUnits = [IXGUnit]()
@@ -22,7 +22,7 @@ class StationsTableViewController: UITableViewController {
         let response = stationsManager.fetchUnits(auth: "TODO")
         switch response {
         case .success(let units):
-            self.units = units
+            self.allUnits = units
             filteredUnits = units
         case .failure(let error):
             print(error.localizedDescription)
@@ -123,17 +123,29 @@ extension StationsTableViewController: UISearchResultsUpdating, UISearchBarDeleg
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        let selectedScopeButtonIndex = searchController.searchBar.selectedScopeButtonIndex//current tab position
-        filteredUnits = units.filter{$0.filterUnitBySearchText(searchText: searchController.searchBar.text ?? "")}//filters list based on scope
-        tableView.reloadData()//updates the list now that we have new filter perameters
+
+        guard let searchText = searchController.searchBar.text, searchText != "" else {
+            filteredUnits = allUnits
+            tableView.reloadData()
+            return
+        }
+
+        filteredUnits = allUnits.map({ unit in
+            let filteredStations = unit.stations(matching: searchText)
+            return IXGUnit(number: unit.number, stations: filteredStations)
+        })
+        tableView.reloadData()
     }
 }
 
-extension IXGUnit{
-    //filter the units so that only units that have stations that match the search text are valid
-    func filterUnitBySearchText(searchText: String) -> Bool {
-        return !stations.filter { station in
-            return searchText.isEmpty || station.name.lowercased().contains(searchText.lowercased())
-        }.isEmpty
+extension IXGUnit {
+    func stations(matching searchText: String) -> [IXGStation] {
+        return self.stations.filter { $0.isMatch(for: searchText) }
+    }
+}
+
+extension IXGStation {
+    func isMatch(for searchText: String) -> Bool {
+        return self.name.lowercased().contains(searchText.lowercased())
     }
 }
