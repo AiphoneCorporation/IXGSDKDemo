@@ -7,6 +7,7 @@
 
 import AiphoneIntercomCorePkg
 import SwiftUI
+import AVKit
 
 class RecordingsTableViewController: UITableViewController {
     let callRecordsManager = CallRecordsManager()//SDK records manager
@@ -66,7 +67,7 @@ class RecordingsTableViewController: UITableViewController {
                 }
                 
                 VStack(alignment: .leading) {
-                    let color = if(record.type == .missed) { Color.red } else { Color.black }//text color will be red if missed, black if not
+                    let color = if(record.type == .missed) { Color.red } else { Color.primary }//text color will be red if missed, black if not
                     
                     Text(record.stationName).font(.headline).foregroundStyle(color)
                     Text(record.callStarted.formatted(date: .abbreviated, time: .shortened)).font(.footnote).foregroundStyle(color)
@@ -86,6 +87,47 @@ class RecordingsTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let record = filteredRecords[safeIndex: indexPath.row] else { return }
+        let stationTitle = "\(record.stationName) recording"
+        
+        print(stationTitle)
+        
+        if(record.url != nil){
+            let alertController = UIAlertController(title: stationTitle, message: .none, preferredStyle: .actionSheet)
+            guard let path = Bundle.main.path(forResource: "SampleVideo", ofType: "mp4")
+            else {
+                print("Video not found")
+                return
+            }
+            let url = URL(fileURLWithPath: path)
+            
+            let playAction = UIAlertAction(title: "Play", style: .default) { action in
+                print(action)
+                
+                let player = AVPlayer(url: url)
+                let vc = AVPlayerViewController()
+                vc.player = player
+                self.present(vc, animated: true) {
+                    vc.player?.play()
+                }
+            }
+            let exportAction = UIAlertAction(title: "Share", style: .default) { action in
+                print(action)
+                let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                print(action)
+            }
+            alertController.addAction(playAction)
+            alertController.addAction(exportAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true)
+        }
     }
     
     /*

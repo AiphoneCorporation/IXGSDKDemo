@@ -56,7 +56,6 @@ class StationsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: StationsTableViewController.cellId, for: indexPath)
         if let station = filteredUnits[safeIndex: indexPath.section]?.stations[safeIndex: indexPath.row] {
             cell.textLabel?.text = station.name
-
             cell.detailTextLabel?.text = station.capabilityDescription
         }
 
@@ -123,7 +122,6 @@ extension StationsTableViewController: UISearchResultsUpdating, UISearchBarDeleg
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-
         guard let searchText = searchController.searchBar.text, searchText != "" else {
             filteredUnits = allUnits
             tableView.reloadData()

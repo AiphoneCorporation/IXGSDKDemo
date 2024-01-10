@@ -15,7 +15,7 @@
 		ACECBDC62B2D0A41008C77B4 /* IXGSDKDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDC52B2D0A41008C77B4 /* IXGSDKDemoTests.swift */; };
 		ACECBDD02B2D0A41008C77B4 /* IXGSDKDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */; };
 		ACECBDD22B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */; };
-		CBBFE1542B4C673000828032 /* RecordingListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBBFE1532B4C673000828032 /* RecordingListView.xib */; };
+		CBCB4EF72B4F3C6D000CE58E /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CBCB4EF62B4F3C6D000CE58E /* SampleVideo.mp4 */; };
 		CBE20BFA2B44933200C66936 /* AiphoneIntercomCorePkg in Frameworks */ = {isa = PBXBuildFile; productRef = CBE20BF92B44933200C66936 /* AiphoneIntercomCorePkg */; };
 		CBE20C002B44AA8B00C66936 /* StationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */; };
 		CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */; };
@@ -55,7 +55,7 @@
 		ACECBDCB2B2D0A41008C77B4 /* IXGSDKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IXGSDKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITests.swift; sourceTree = "<group>"; };
 		ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CBBFE1532B4C673000828032 /* RecordingListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordingListView.xib; sourceTree = "<group>"; };
+		CBCB4EF62B4F3C6D000CE58E /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
 		CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +113,7 @@
 		ACECBDAD2B2D0A3F008C77B4 /* IXGSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CBCB4EF62B4F3C6D000CE58E /* SampleVideo.mp4 */,
 				ACECBDAE2B2D0A3F008C77B4 /* AppDelegate.swift */,
 				ACECBDB72B2D0A41008C77B4 /* Assets.xcassets */,
 				ACECBDBC2B2D0A41008C77B4 /* Info.plist */,
@@ -120,7 +121,6 @@
 				ACECBDB42B2D0A3F008C77B4 /* Main.storyboard */,
 				ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */,
 				CBE20C092B45F0AD00C66936 /* ViewControllers */,
-				CBBFE1552B4C6A1E00828032 /* Views */,
 			);
 			path = IXGSDKDemo;
 			sourceTree = "<group>";
@@ -142,22 +142,14 @@
 			path = IXGSDKDemoUITests;
 			sourceTree = "<group>";
 		};
-		CBBFE1552B4C6A1E00828032 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CBBFE1532B4C673000828032 /* RecordingListView.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		CBE20C092B45F0AD00C66936 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				CBEC278F2B2D19D9003FBC6D /* QRScannerViewController.swift */,
 				CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */,
+				CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */,
 				CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */,
 				CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */,
-				CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */,
 				CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */,
 			);
 			path = ViewControllers;
@@ -275,8 +267,8 @@
 			files = (
 				ACECBDBB2B2D0A41008C77B4 /* LaunchScreen.storyboard in Resources */,
 				ACECBDB82B2D0A41008C77B4 /* Assets.xcassets in Resources */,
-				CBBFE1542B4C673000828032 /* RecordingListView.xib in Resources */,
 				ACECBDB62B2D0A3F008C77B4 /* Main.storyboard in Resources */,
+				CBCB4EF72B4F3C6D000CE58E /* SampleVideo.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
