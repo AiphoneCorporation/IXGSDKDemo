@@ -217,6 +217,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="AOs-dI-TC2"/>
+                    <connections>
+                        <segue destination="7Ln-Vw-Mh7" kind="show" identifier="callStation" id="GGS-As-G89"/>
+                        <segue destination="7Ln-Vw-Mh7" kind="show" identifier="monitorStation" id="S7Y-oK-LOr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ToA-Sd-1Oz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,7 +321,26 @@
             </objects>
             <point key="canvasLocation" x="4123" y="1832"/>
         </scene>
+        <!--Call View Controller-->
+        <scene sceneID="WjB-gG-mUa">
+            <objects>
+                <viewController id="7Ln-Vw-Mh7" customClass="CallViewController" customModule="IXGSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wWa-vf-mNO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ea0-bu-7ni"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5z6-9K-VSG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Egt-8y-coK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4123" y="2717"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="S7Y-oK-LOr"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="play.rectangle.on.rectangle" catalog="system" width="128" height="98"/>

@@ -13,6 +13,7 @@ class StationsTableViewController: UITableViewController {
     let stationsManager = StationsManager()
     let searchController = UISearchController(searchResultsController: nil)//handles search bar and tab bar
     var filteredUnits = [IXGUnit]()
+    var selectedStation: IXGStation? = nil
 
     static let cellId = "stationListCell"
 
@@ -29,6 +30,11 @@ class StationsTableViewController: UITableViewController {
         }
         
         self.configureSearchController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectedStation = nil
     }
 
     // MARK: - Table view data source
@@ -51,7 +57,6 @@ class StationsTableViewController: UITableViewController {
         else { return 0 }
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StationsTableViewController.cellId, for: indexPath)
         if let station = filteredUnits[safeIndex: indexPath.section]?.stations[safeIndex: indexPath.row] {
@@ -65,18 +70,22 @@ class StationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let unit = filteredUnits[safeIndex: indexPath.section] else { return }
         guard let station = unit.stations[safeIndex: indexPath.row] else { return }
+        selectedStation = station
         let stationTitle = "\(station.name) in Unit \(String(unit.number))"
             
         print(stationTitle)
         let alertController = UIAlertController(title: stationTitle, message: station.capabilityDescription, preferredStyle: .actionSheet)
         let callAction = UIAlertAction(title: "Call", style: .default) { action in
             print(action)
+            self.performSegue(withIdentifier: Segue.callStation.rawValue, sender: self)
         }
         let monitorAction = UIAlertAction(title: "Monitor", style: .default) { action in
             print(action)
+            self.performSegue(withIdentifier: Segue.monitorStation.rawValue, sender: self)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
             print(action)
+            self.selectedStation = nil
         }
         alertController.addAction(callAction)
         alertController.addAction(monitorAction)
@@ -107,6 +116,13 @@ extension IXGStation {
 }
 
 extension StationsTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    enum Segue: String{
+        case callStation = "callStation"
+        case monitorStation = "monitorStation"
+    }
+    
+    
     func configureSearchController() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -127,12 +143,29 @@ extension StationsTableViewController: UISearchResultsUpdating, UISearchBarDeleg
             tableView.reloadData()
             return
         }
-
+        
         filteredUnits = allUnits.map({ unit in
             let filteredStations = unit.stations(matching: searchText)
             return IXGUnit(number: unit.number, stations: filteredStations)
         })
         tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? CallViewController else { return }
+        guard selectedStation != nil else {
+            assertionFailure("Cannot communicate with nil station")
+            return
+        }
+        vc.station = selectedStation
+        switch segue.identifier {
+        case Segue.callStation.rawValue:
+            vc.callType = Segue.callStation.rawValue
+        case Segue.monitorStation.rawValue:
+            vc.callType = Segue.monitorStation.rawValue
+        default:
+            assertionFailure("No segue identifier")
+        }
     }
 }
 

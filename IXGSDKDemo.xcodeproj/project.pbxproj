@@ -15,6 +15,7 @@
 		ACECBDC62B2D0A41008C77B4 /* IXGSDKDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDC52B2D0A41008C77B4 /* IXGSDKDemoTests.swift */; };
 		ACECBDD02B2D0A41008C77B4 /* IXGSDKDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */; };
 		ACECBDD22B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */; };
+		CBBD01332B60465100BAD5ED /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD01322B60465100BAD5ED /* CallViewController.swift */; };
 		CBCB4EF72B4F3C6D000CE58E /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CBCB4EF62B4F3C6D000CE58E /* SampleVideo.mp4 */; };
 		CBE20BFA2B44933200C66936 /* AiphoneIntercomCorePkg in Frameworks */ = {isa = PBXBuildFile; productRef = CBE20BF92B44933200C66936 /* AiphoneIntercomCorePkg */; };
 		CBE20C002B44AA8B00C66936 /* StationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */; };
@@ -55,6 +56,7 @@
 		ACECBDCB2B2D0A41008C77B4 /* IXGSDKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IXGSDKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITests.swift; sourceTree = "<group>"; };
 		ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBBD01322B60465100BAD5ED /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		CBCB4EF62B4F3C6D000CE58E /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
 		CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */,
 				CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */,
 				CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */,
+				CBBD01322B60465100BAD5ED /* CallViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				ACECBDAF2B2D0A3F008C77B4 /* AppDelegate.swift in Sources */,
 				ACECBDB12B2D0A3F008C77B4 /* SceneDelegate.swift in Sources */,
 				CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */,
+				CBBD01332B60465100BAD5ED /* CallViewController.swift in Sources */,
 				CBEC27902B2D19D9003FBC6D /* QRScannerViewController.swift in Sources */,
 				CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */,
 				CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */,
@@ -497,7 +501,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiphone.IXGSDKDemo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiphone.IXGSDKDemo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -527,7 +531,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiphone.IXGSDKDemo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiphone.IXGSDKDemo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
