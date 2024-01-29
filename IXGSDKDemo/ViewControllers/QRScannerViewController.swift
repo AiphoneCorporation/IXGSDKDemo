@@ -13,12 +13,12 @@ import AiphoneIntercomCorePkg
 final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var mobileAppStationsList: [IXGMobileAppStation] = []
+    var unitInfo: IXGUnitInfo!
     
     lazy var registrationManager: RegistrationManager = {//IXG SDK registration manager
         let session = URLSession.shared//custom network session
         session.configuration.timeoutIntervalForRequest = 5//limits perameter for testing
-        return RegistrationManager(urlSession: session)
+        return RegistrationManager(session: session)
     }()
     
     
@@ -77,17 +77,20 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     fileprivate func handleQR(_ qrString: String) {
         print(qrString)
         Task {
-            let qrResponse = await registrationManager.send(qrCode: qrString)//api response after we send string from QR
-            
-            switch qrResponse {
-            case .success(let stationList)://if QR was valid and returned a list of slots
-                mobileAppStationsList = stationList//save slots for next screen
-                performSegue(withIdentifier: Segue.appSlots.rawValue, sender: self)//and transition
-                
-            case .failure(let error)://if QR was not valid and returned an alert
-                let alertVC = UIAlertController(title: "Registration Error!", message: error.localizedDescription, preferredStyle: .alert)//dispkay alert
+            let body = IXGUnitAppPayload(roomCode: qrString, sid: "20240125150613324196", sys: "3", sysver: "1.2")
+            let request = IXGUnitAppRequest(body: body)
+        
+            let result = await registrationManager.send(request: request)
+        
+            switch result {
+            case .success(let info):
+                unitInfo = info
+                performSegue(withIdentifier: Segue.appSlots.rawValue, sender: self)
+            case .failure(let error):
+                print(error)
+                let alertVC = UIAlertController(title: "Registration Error!", message: error.localizedDescription, preferredStyle: .alert)
                 let okayAction = UIAlertAction(title: "OK", style: .default) { _ in
-                    DispatchQueue.global(qos: .background).async{ self.resetCaptureSession() }//and reset camera once users select "OK" on error
+                    DispatchQueue.global(qos: .background).async{ self.resetCaptureSession() }
                 }
                 alertVC.addAction(okayAction)
                 present(alertVC, animated: true)
@@ -102,7 +105,7 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? SlotSelectorTableViewController else { return }
-        vc.mobileAppStationsList = mobileAppStationsList//sets the list of slots for the user to be able to select from
+        vc.unitInfo = unitInfo//sets the list of slots for the user to be able to select from
         vc.registrationManager = registrationManager
     }
 }

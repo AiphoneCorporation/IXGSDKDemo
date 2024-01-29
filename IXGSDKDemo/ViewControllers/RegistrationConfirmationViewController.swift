@@ -9,7 +9,10 @@ import UIKit
 import AiphoneIntercomCorePkg
 
 class RegistrationConfirmationViewController: UIViewController, UITextFieldDelegate {
-    var selectedSlot: IXGMobileAppStation!
+    var unitInfo: IXGUnitInfo!
+    var selectedSlotIndex: Int!
+    var selectedStation: IXGAppSlot!
+    var newStation: IXGAppSlot!
     var registrationManager: RegistrationManager!
     @IBOutlet weak var stationNameTextField: UITextField!
     @IBOutlet weak var stationNumberLabel: UILabel!
@@ -19,8 +22,10 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
 
         stationNameTextField.delegate = self
         
-        stationNumberLabel.text = String(selectedSlot.number)//Update number to number of selected station
-        stationNameTextField.text = String(selectedSlot.number)//Update text input default text to number of selected station
+        selectedStation = unitInfo.appStations[selectedSlotIndex]
+        
+        stationNumberLabel.text = String(selectedStation.number)//Update number to number of selected station
+        stationNameTextField.text = String(selectedStation.number)//Update text input default text to number of selected station
         
     }
     
@@ -31,12 +36,13 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }//if value is null, do nothing
-        selectedSlot.name = text//else update text to what is in field
+        
+        newStation = IXGAppSlot(cliID: selectedStation.cliID, number: selectedStation.number, names: [text], registeredStatus: 1)
     }
     
     @IBAction func confirmationButtonTapped(_ sender: Any) {
         Task {
-            let result = await registrationManager.register(appSlot: selectedSlot)
+            let result = await registrationManager.register(appSlot: newStation)
             switch result {
             case .success(let message):
                 print(message)

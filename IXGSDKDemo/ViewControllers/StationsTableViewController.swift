@@ -10,7 +10,7 @@ import AiphoneIntercomCorePkg
 
 class StationsTableViewController: UITableViewController {
     var allUnits = [IXGUnit]()
-    let stationsManager = StationsManager()
+    let stationsManager = StationsManager(session: URLSession())
     let searchController = UISearchController(searchResultsController: nil)//handles search bar and tab bar
     var filteredUnits = [IXGUnit]()
     var selectedStation: IXGStation? = nil

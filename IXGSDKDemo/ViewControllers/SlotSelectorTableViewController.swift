@@ -10,8 +10,8 @@ import AiphoneIntercomCorePkg
 
 class SlotSelectorTableViewController: UITableViewController {
     var registrationManager: RegistrationManager!
-    var mobileAppStationsList: [IXGMobileAppStation]!
-    var selectedStation: IXGMobileAppStation!
+    var unitInfo: IXGUnitInfo!
+    var selectedStationIndex: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +27,14 @@ class SlotSelectorTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mobileAppStationsList.count//should either be 1 or 8, but we accept any
+        return unitInfo.appStations.count//should either be 1 or 8, but we accept any
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "appSlotCell", for: indexPath)
-        let stationListSlot = mobileAppStationsList[indexPath.row]//a given slot in the list
+        let stationListSlot = unitInfo.appStations[indexPath.row]//a given slot in the list
         
-        if(stationListSlot.isOccupied){ cell.textLabel?.text = stationListSlot.name }//if the station tied to that slot is occupied, update the name
+        if(stationListSlot.registeredStatus != 0){ cell.textLabel?.text = stationListSlot.names.first }//if the station tied to that slot is occupied, update the name
         else { cell.textLabel?.text = "Open slot \(indexPath.row + 1)" }//otherwise set it to generic open slot text
         
         cell.detailTextLabel?.text = String(stationListSlot.number) //TODO: add custom slot display with hint and assign hint here
@@ -43,18 +43,18 @@ class SlotSelectorTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let slot = mobileAppStationsList[indexPath.row]
+        selectedStationIndex = indexPath.row
+        let slot = unitInfo.appStations[selectedStationIndex]
         
-        if(slot.isOccupied) { return }//if user tapped on slot already occupied, do nothing
-            
-        selectedStation = slot//otherwise update the selected slot for confirmation screen
+        if(slot.registeredStatus != 0) { return }//if user tapped on slot already occupied, do nothing
         
         performSegue(withIdentifier: Segue.slotDetails.rawValue, sender: self)//and move on to said screen
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? RegistrationConfirmationViewController else { return }
-        vc.selectedSlot = selectedStation//DI selected app for station confirmation screen
+        vc.unitInfo = unitInfo//DI selected app for station confirmation screen
+        vc.selectedSlotIndex = selectedStationIndex//DI selected slot for station confirmation screen
         vc.registrationManager = registrationManager
     }
 }
