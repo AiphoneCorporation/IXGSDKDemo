@@ -11,7 +11,7 @@ import AiphoneIntercomCorePkg
 class SlotSelectorTableViewController: UITableViewController {
     var registrationManager: RegistrationManager!
     var unitInfo: IXGUnitInfo!
-    var selectedStationIndex: Int!
+    var selectedStation: IXGAppSlot!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +35,17 @@ class SlotSelectorTableViewController: UITableViewController {
         let stationListSlot = unitInfo.appStations[indexPath.row]//a given slot in the list
         
         if(stationListSlot.registeredStatus != 0){ cell.textLabel?.text = stationListSlot.names.first }//if the station tied to that slot is occupied, update the name
-        else { cell.textLabel?.text = "Open slot \(indexPath.row + 1)" }//otherwise set it to generic open slot text
+        else { cell.textLabel?.text = stationListSlot.names.first }//otherwise set it to generic open slot text
         
-        cell.detailTextLabel?.text = String(stationListSlot.number) //TODO: add custom slot display with hint and assign hint here
+        cell.detailTextLabel?.text = stationListSlot.number //TODO: add custom slot display with hint and assign hint here
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedStationIndex = indexPath.row
-        let slot = unitInfo.appStations[selectedStationIndex]
+        selectedStation = unitInfo.appStations[indexPath.row]
         
-        if(slot.registeredStatus != 0) { return }//if user tapped on slot already occupied, do nothing
+        if(selectedStation.registeredStatus != 0) { return }//if user tapped on slot already occupied, do nothing
         
         performSegue(withIdentifier: Segue.slotDetails.rawValue, sender: self)//and move on to said screen
     }
@@ -54,7 +53,7 @@ class SlotSelectorTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? RegistrationConfirmationViewController else { return }
         vc.unitInfo = unitInfo//DI selected app for station confirmation screen
-        vc.selectedSlotIndex = selectedStationIndex//DI selected slot for station confirmation screen
+        vc.selectedStation = selectedStation//DI selected slot for station confirmation screen
         vc.registrationManager = registrationManager
     }
 }

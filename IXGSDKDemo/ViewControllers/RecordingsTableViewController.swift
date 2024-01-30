@@ -10,7 +10,7 @@ import SwiftUI
 import AVKit
 
 class RecordingsTableViewController: UITableViewController {
-    let callRecordsManager = CallRecordsManager(session: URLSession())//SDK records manager
+    let callRecordsManager = CallRecordsManager(session: .shared)//SDK records manager
     let searchController = UISearchController(searchResultsController: nil)//handles search bar and tab bar
     let scopeButtons = RecordsFilterScope.allCases.map{ $0 }//tab bar
     private var scopeButton: RecordsFilterScope = .all//sets default state of tab bar to all tab

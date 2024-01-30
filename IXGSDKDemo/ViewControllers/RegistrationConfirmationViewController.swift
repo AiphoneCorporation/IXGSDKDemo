@@ -12,8 +12,8 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
     var unitInfo: IXGUnitInfo!
     var selectedSlotIndex: Int!
     var selectedStation: IXGAppSlot!
-    var newStation: IXGAppSlot!
     var registrationManager: RegistrationManager!
+    var stationName: String?
     @IBOutlet weak var stationNameTextField: UITextField!
     @IBOutlet weak var stationNumberLabel: UILabel!
 
@@ -22,11 +22,8 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
 
         stationNameTextField.delegate = self
         
-        selectedStation = unitInfo.appStations[selectedSlotIndex]
-        
-        stationNumberLabel.text = String(selectedStation.number)//Update number to number of selected station
-        stationNameTextField.text = String(selectedStation.number)//Update text input default text to number of selected station
-        
+        stationNumberLabel.text = selectedStation.number//Update number to number of selected station
+        stationNameTextField.text = selectedStation.names.first//Update text input default text to number of selected station
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {//user tapped Done
@@ -37,12 +34,12 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }//if value is null, do nothing
         
-        newStation = IXGAppSlot(cliID: selectedStation.cliID, number: selectedStation.number, names: [text], registeredStatus: 1)
+        selectedStation = IXGAppSlot(cliID: selectedStation.cliID, number: selectedStation.number, names: [text], registeredStatus: selectedStation.registeredStatus)//update selected station with new name
     }
     
     @IBAction func confirmationButtonTapped(_ sender: Any) {
         Task {
-            let result = await registrationManager.register(appSlot: newStation)
+            let result = await registrationManager.register(appSlot: selectedStation)
             switch result {
             case .success(let message):
                 print(message)
