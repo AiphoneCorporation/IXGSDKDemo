@@ -21,44 +21,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="oJw-wS-Gfr"/>
                     <connections>
-                        <segue destination="Upc-Ha-Bqo" kind="show" identifier="displayAppSlots" id="yQG-IM-fjZ"/>
+                        <segue destination="ACU-6T-WRR" kind="show" identifier="confirmRegistration" id="26e-dx-puE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1p-FP-Gte" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1553" y="371"/>
-        </scene>
-        <!--Slot Selector Table View Controller-->
-        <scene sceneID="IRe-de-u7x">
-            <objects>
-                <tableViewController id="Upc-Ha-Bqo" customClass="SlotSelectorTableViewController" customModule="IXGSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="zzH-FD-Gqo">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="appSlotCell" id="dCH-2m-OWF">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dCH-2m-OWF" id="cDq-Ws-OBz">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Upc-Ha-Bqo" id="PGo-8W-rpg"/>
-                            <outlet property="delegate" destination="Upc-Ha-Bqo" id="eur-WP-ELt"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="8w4-AI-c7R"/>
-                    <connections>
-                        <segue destination="ACU-6T-WRR" kind="show" identifier="confirmStation" id="M2a-uC-1wC"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Kz-E6-l9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-618" y="371"/>
+            <point key="canvasLocation" x="-547" y="370"/>
         </scene>
         <!--Registration Confirmation View Controller-->
         <scene sceneID="pC7-Og-gYO">
@@ -68,22 +36,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A37-Ym-eId" userLabel="stationNumberLabel">
-                                <rect key="frame" x="148" y="137" width="59" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Station Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjN-PX-GNs" userLabel="stationNumberTitleLabel">
-                                <rect key="frame" x="136" y="95" width="120" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Station Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-dv-OEt" userLabel="stationNameTextField">
-                                <rect key="frame" x="116" y="293" width="161" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Update Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-dv-OEt" userLabel="stationNameTextField">
+                                <rect key="frame" x="116" y="409" width="161" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -97,8 +51,8 @@
                                     <action selector="confirmationButtonTapped:" destination="ACU-6T-WRR" eventType="touchUpInside" id="bRr-ZW-S2I"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Station Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYC-yY-ecU" userLabel="stationNameLabel">
-                                <rect key="frame" x="136" y="264" width="103" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Update Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYC-yY-ecU" userLabel="stationNameLabel">
+                                <rect key="frame" x="116" y="380" width="106" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -111,7 +65,6 @@
                     <navigationItem key="navigationItem" id="A1p-hq-g4A"/>
                     <connections>
                         <outlet property="stationNameTextField" destination="bdV-dv-OEt" id="sRS-Nj-ZCE"/>
-                        <outlet property="stationNumberLabel" destination="A37-Ym-eId" id="LyR-vW-AxH"/>
                         <segue destination="vIE-A3-ac7" kind="show" identifier="registrationFinished" id="dnC-hY-tS1"/>
                     </connections>
                 </viewController>
@@ -262,7 +215,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1lR-yG-hJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2505" y="371"/>
+            <point key="canvasLocation" x="-1500" y="370"/>
         </scene>
         <!--Call Records-->
         <scene sceneID="KbT-rt-SCL">

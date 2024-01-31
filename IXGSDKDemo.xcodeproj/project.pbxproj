@@ -22,7 +22,6 @@
 		CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */; };
 		CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */; };
 		CBEC27902B2D19D9003FBC6D /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC278F2B2D19D9003FBC6D /* QRScannerViewController.swift */; };
-		CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */; };
 		CBEC27962B320C7A003FBC6D /* RegistrationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +61,6 @@
 		CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
 		CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		CBEC278F2B2D19D9003FBC6D /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
-		CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotSelectorTableViewController.swift; sourceTree = "<group>"; };
 		CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +149,6 @@
 				CBE20C012B44AB3600C66936 /* RecordingsTableViewController.swift */,
 				CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */,
 				CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */,
-				CBEC27912B30E616003FBC6D /* SlotSelectorTableViewController.swift */,
 				CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */,
 				CBBD01322B60465100BAD5ED /* CallViewController.swift */,
 			);
@@ -298,7 +295,6 @@
 			files = (
 				ACECBDAF2B2D0A3F008C77B4 /* AppDelegate.swift in Sources */,
 				ACECBDB12B2D0A3F008C77B4 /* SceneDelegate.swift in Sources */,
-				CBEC27922B30E616003FBC6D /* SlotSelectorTableViewController.swift in Sources */,
 				CBBD01332B60465100BAD5ED /* CallViewController.swift in Sources */,
 				CBEC27902B2D19D9003FBC6D /* QRScannerViewController.swift in Sources */,
 				CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */,

@@ -13,7 +13,7 @@ import AiphoneIntercomCorePkg
 final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var unitInfo: IXGUnitInfo!
+    var appInfo: IXGAppInfo!
     
     lazy var registrationManager: RegistrationManager = {//IXG SDK registration manager
         let session = URLSession.shared//custom network session
@@ -77,14 +77,11 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     fileprivate func handleQR(_ qrString: String) {
         print(qrString)
         Task {
-            let body = IXGUnitAppPayload(roomCode: qrString, sid: "20240125150613324196", sys: "3", sysver: "1.2")
-            let request = IXGUnitAppRequest(body: body)
-        
-            let result = await registrationManager.send(request: request)
+            let result = await registrationManager.getAppInfo(for: qrString)
         
             switch result {
             case .success(let info):
-                unitInfo = info
+                appInfo = info
                 performSegue(withIdentifier: Segue.appSlots.rawValue, sender: self)
             case .failure(let error):
                 print(error)
@@ -104,14 +101,14 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let vc = segue.destination as? SlotSelectorTableViewController else { return }
-        vc.unitInfo = unitInfo//sets the list of slots for the user to be able to select from
+        guard let vc = segue.destination as? RegistrationConfirmationViewController else { return }
         vc.registrationManager = registrationManager
+        vc.appInfo = appInfo
     }
 }
 
 extension QRScannerViewController{
     enum Segue: String{
-        case appSlots = "displayAppSlots" //screen with list of slots for user to select
+        case appSlots = "confirmRegistration" //screen with list of slots for user to select
     }
 }

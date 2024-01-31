@@ -9,21 +9,17 @@ import UIKit
 import AiphoneIntercomCorePkg
 
 class RegistrationConfirmationViewController: UIViewController, UITextFieldDelegate {
-    var unitInfo: IXGUnitInfo!
-    var selectedSlotIndex: Int!
-    var selectedStation: IXGAppSlot!
     var registrationManager: RegistrationManager!
+    var appInfo: IXGAppInfo!
     var stationName: String?
     @IBOutlet weak var stationNameTextField: UITextField!
-    @IBOutlet weak var stationNumberLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         stationNameTextField.delegate = self
         
-        stationNumberLabel.text = selectedStation.number//Update number to number of selected station
-        stationNameTextField.text = selectedStation.names.first//Update text input default text to number of selected station
+        stationNameTextField.text = appInfo.name//Update text input default text to default name
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {//user tapped Done
@@ -34,12 +30,12 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }//if value is null, do nothing
         
-        selectedStation = IXGAppSlot(cliID: selectedStation.cliID, number: selectedStation.number, names: [text], registeredStatus: selectedStation.registeredStatus)//update selected station with new name
+        appInfo = IXGAppInfo(name: text, propertyId: appInfo.propertyId, qrCode: appInfo.qrCode, appSlotId: appInfo.appSlotId)//update appInfo with new name
     }
     
     @IBAction func confirmationButtonTapped(_ sender: Any) {
         Task {
-            let result = await registrationManager.register(appSlot: selectedStation)
+            let result = await registrationManager.register(appInfo: appInfo)
             switch result {
             case .success(let message):
                 print(message)
