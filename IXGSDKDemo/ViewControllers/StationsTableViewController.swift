@@ -9,10 +9,10 @@ import UIKit
 import AiphoneIntercomCorePkg
 
 class StationsTableViewController: UITableViewController {
-    var allUnits = [IXGUnit]()
     let stationsManager = StationsManager(session: .shared)
     let searchController = UISearchController(searchResultsController: nil)//handles search bar and tab bar
-    var filteredUnits = [IXGUnit]()
+    var allStations = [IXGStation]()
+    var filteredStations = [IXGStation]()
     var selectedStation: IXGStation? = nil
 
     static let cellId = "stationListCell"
@@ -20,11 +20,11 @@ class StationsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let response = stationsManager.fetchUnits(auth: "TODO")
+        let response = stationsManager.fetchStations()
         switch response {
-        case .success(let units):
-            self.allUnits = units
-            filteredUnits = units
+        case .success(let stations):
+            self.allStations = stations
+            filteredStations = stations
         case .failure(let error):
             print(error.localizedDescription)
         }
@@ -39,27 +39,17 @@ class StationsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let unit = filteredUnits[safeIndex: section] {
-            return String("Unit \(unit.number)")
-        }
-        else { return "" }
-    }
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return filteredUnits.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let unit = filteredUnits[safeIndex: section] {
-            return unit.stations.count
-        }
-        else { return 0 }
+        return filteredStations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StationsTableViewController.cellId, for: indexPath)
-        if let station = filteredUnits[safeIndex: indexPath.section]?.stations[safeIndex: indexPath.row] {
+        if let station = filteredStations[safeIndex: indexPath.section] {
             cell.textLabel?.text = station.name
             cell.detailTextLabel?.text = station.capabilityDescription
         }
@@ -68,10 +58,9 @@ class StationsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let unit = filteredUnits[safeIndex: indexPath.section] else { return }
-        guard let station = unit.stations[safeIndex: indexPath.row] else { return }
+        guard let station = filteredStations[safeIndex: indexPath.row] else { return }
         selectedStation = station
-        let stationTitle = "\(station.name) in Unit \(String(unit.number))"
+        let stationTitle = station.name
             
         print(stationTitle)
         let alertController = UIAlertController(title: stationTitle, message: station.capabilityDescription, preferredStyle: .actionSheet)
@@ -139,15 +128,12 @@ extension StationsTableViewController: UISearchResultsUpdating, UISearchBarDeleg
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text, searchText != "" else {
-            filteredUnits = allUnits
+            filteredStations = allStations
             tableView.reloadData()
             return
         }
         
-        filteredUnits = allUnits.map({ unit in
-            let filteredStations = unit.stations(matching: searchText)
-            return IXGUnit(number: unit.number, stations: filteredStations)
-        })
+        filteredStations = allStations.filter { $0.isMatch(for: searchText) }
         tableView.reloadData()
     }
     
@@ -166,12 +152,6 @@ extension StationsTableViewController: UISearchResultsUpdating, UISearchBarDeleg
         default:
             assertionFailure("No segue identifier")
         }
-    }
-}
-
-extension IXGUnit {
-    func stations(matching searchText: String) -> [IXGStation] {
-        return self.stations.filter { $0.isMatch(for: searchText) }
     }
 }
 

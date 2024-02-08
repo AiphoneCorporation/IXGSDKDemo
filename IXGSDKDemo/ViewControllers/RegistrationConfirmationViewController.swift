@@ -10,16 +10,21 @@ import AiphoneIntercomCorePkg
 
 class RegistrationConfirmationViewController: UIViewController, UITextFieldDelegate {
     var registrationManager: RegistrationManager!
-    var appInfo: IXGAppInfo!
-    var stationName: String?
     @IBOutlet weak var stationNameTextField: UITextField!
+    var stations = [IXGStation]()
+    var name: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         stationNameTextField.delegate = self
         
-        stationNameTextField.text = appInfo.name//Update text input default text to default name
+        do{
+            stationNameTextField.text = try IXGAppInfo.read().name//update text input default text to default name
+        }
+        catch{
+            print(error.localizedDescription)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {//user tapped Done
@@ -30,12 +35,12 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }//if value is null, do nothing
         
-        appInfo = IXGAppInfo(name: text, propertyId: appInfo.propertyId, qrCode: appInfo.qrCode, appSlotId: appInfo.appSlotId)//update appInfo with new name
+        name = text// update with new name
     }
     
     @IBAction func confirmationButtonTapped(_ sender: Any) {
         Task {
-            let result = await registrationManager.register(appInfo: appInfo)
+            let result = await registrationManager.register(name: name)
             switch result {
             case .success(let message):
                 print(message)

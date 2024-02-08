@@ -13,7 +13,6 @@ import AiphoneIntercomCorePkg
 final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var appInfo: IXGAppInfo!
     
     lazy var registrationManager: RegistrationManager = {//IXG SDK registration manager
         let session = URLSession.shared//custom network session
@@ -77,11 +76,10 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     fileprivate func handleQR(_ qrString: String) {
         print(qrString)
         Task {
-            let result = await registrationManager.getAppInfo(for: qrString)
+            let result = await registrationManager.sendQRCode(for: qrString)
         
             switch result {
-            case .success(let info):
-                appInfo = info
+            case .success(_):
                 performSegue(withIdentifier: Segue.appSlots.rawValue, sender: self)
             case .failure(let error):
                 print(error)
@@ -95,7 +93,7 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
         }
     }
     
-    nonisolated fileprivate func resetCaptureSession(){// simply stoping and starting camera to let users try scanning again
+    nonisolated fileprivate func resetCaptureSession(){//simply stopping and starting camera to let users try scanning again
         captureSession.stopRunning()
         captureSession.startRunning()
     }
@@ -103,7 +101,6 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? RegistrationConfirmationViewController else { return }
         vc.registrationManager = registrationManager
-        vc.appInfo = appInfo
     }
 }
 
