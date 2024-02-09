@@ -19,12 +19,7 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
 
         stationNameTextField.delegate = self
         
-        do{
-            stationNameTextField.text = try IXGAppInfo.read().name//update text input default text to default name
-        }
-        catch{
-            print(error.localizedDescription)
-        }
+        stationNameTextField.text = "Enter name"//update text input default text to default name
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {//user tapped Done

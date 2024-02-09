@@ -20,16 +20,18 @@ class StationsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let response = stationsManager.fetchStations()
-        switch response {
-        case .success(let stations):
-            self.allStations = stations
-            filteredStations = stations
-        case .failure(let error):
-            print(error.localizedDescription)
+        Task{
+            let response = await stationsManager.getStations()
+            switch response {
+            case .success(let stations):
+                self.allStations = stations
+                filteredStations = stations
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+            self.configureSearchController()
         }
-        
-        self.configureSearchController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
