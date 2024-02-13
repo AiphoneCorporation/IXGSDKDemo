@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACD5A9AE2B7AE523000836CD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5A9AD2B7AE523000836CD /* RootViewController.swift */; };
 		ACECBDAF2B2D0A3F008C77B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDAE2B2D0A3F008C77B4 /* AppDelegate.swift */; };
 		ACECBDB12B2D0A3F008C77B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */; };
 		ACECBDB62B2D0A3F008C77B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDB42B2D0A3F008C77B4 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ACD5A9AD2B7AE523000836CD /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		ACECBDAB2B2D0A3F008C77B4 /* IXGSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IXGSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACECBDAE2B2D0A3F008C77B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACECBDB02B2D0A3F008C77B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				CBEC27952B320C7A003FBC6D /* RegistrationConfirmationViewController.swift */,
 				CBE20BFF2B44AA8B00C66936 /* StationsTableViewController.swift */,
 				CBBD01322B60465100BAD5ED /* CallViewController.swift */,
+				ACD5A9AD2B7AE523000836CD /* RootViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				ACECBDAF2B2D0A3F008C77B4 /* AppDelegate.swift in Sources */,
 				ACECBDB12B2D0A3F008C77B4 /* SceneDelegate.swift in Sources */,
 				CBBD01332B60465100BAD5ED /* CallViewController.swift in Sources */,
+				ACD5A9AE2B7AE523000836CD /* RootViewController.swift in Sources */,
 				CBEC27902B2D19D9003FBC6D /* QRScannerViewController.swift in Sources */,
 				CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */,
 				CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */,
@@ -498,7 +502,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MY2DDQXDRN;
+				DEVELOPMENT_TEAM = 48MUA29SAN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IXGSDKDemo/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Gimme Camera PLZ KTHKS";
@@ -528,7 +532,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MY2DDQXDRN;
+				DEVELOPMENT_TEAM = 48MUA29SAN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IXGSDKDemo/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Gimme Camera PLZ KTHKS";

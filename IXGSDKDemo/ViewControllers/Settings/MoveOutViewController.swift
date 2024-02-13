@@ -25,7 +25,7 @@ class MoveOutViewController: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                     self.restartApplication()
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print(error)
                 }
             }
         }))

@@ -29,7 +29,7 @@ class RecordingsTableViewController: UITableViewController {
                 self.filteredRecords = allRecords//sets filtered records to desired default state of all records
                 tableView.reloadData()//updates list now that we have data
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
             }
         }
         

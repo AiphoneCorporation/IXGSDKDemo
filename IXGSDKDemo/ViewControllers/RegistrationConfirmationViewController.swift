@@ -37,11 +37,10 @@ class RegistrationConfirmationViewController: UIViewController, UITextFieldDeleg
         Task {
             let result = await registrationManager.register(name: name)
             switch result {
-            case .success(let message):
-                print(message)
-                performSegue(withIdentifier: Segue.registrationConfirmed.rawValue, sender: self)//and move on to said screen
+            case .success:
+                performSegue(withIdentifier: Segue.registrationConfirmed.rawValue, sender: self)
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }

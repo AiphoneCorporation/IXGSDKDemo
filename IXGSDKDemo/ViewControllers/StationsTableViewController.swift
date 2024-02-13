@@ -9,7 +9,11 @@ import UIKit
 import AiphoneIntercomCorePkg
 
 class StationsTableViewController: UITableViewController {
-    let stationsManager = StationsManager(session: .shared)
+    lazy var stationsManager: StationsManager = {
+        let session = URLSession.shared
+        session.configuration.timeoutIntervalForRequest = 5
+        return StationsManager(session: session)
+    }()
     let searchController = UISearchController(searchResultsController: nil)//handles search bar and tab bar
     var allStations = [IXGStation]()
     var filteredStations = [IXGStation]()
@@ -23,13 +27,15 @@ class StationsTableViewController: UITableViewController {
         Task{
             let response = await stationsManager.getStations()
             switch response {
+                
             case .success(let stations):
                 self.allStations = stations
                 filteredStations = stations
+                tableView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
             }
-            
+
             self.configureSearchController()
         }
     }
@@ -51,7 +57,7 @@ class StationsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StationsTableViewController.cellId, for: indexPath)
-        if let station = filteredStations[safeIndex: indexPath.section] {
+        if let station = filteredStations[safeIndex: indexPath.row] {
             cell.textLabel?.text = station.name
             cell.detailTextLabel?.text = station.capabilityDescription
         }

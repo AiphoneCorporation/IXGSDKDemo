@@ -23,8 +23,7 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video)//checks if device has camera capable of video, saves it if so
         else {
             print("Missing video device")
@@ -60,7 +59,11 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
         
         DispatchQueue.global(qos: .background).async{ self.captureSession.startRunning() }//start the camera
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     //If metadata object (QR code) was detected in camera
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession.stopRunning()//stop camera so we can process what was captured
@@ -76,14 +79,14 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     fileprivate func handleQR(_ qrString: String) {
         print(qrString)
         Task {
-            let result = await registrationManager.sendQRCode(for: qrString)
+            let result = await self.registrationManager.sendQRCode(for: qrString)
         
             switch result {
-            case .success(_):
+            case .success:
                 performSegue(withIdentifier: Segue.appSlots.rawValue, sender: self)
             case .failure(let error):
                 print(error)
-                let alertVC = UIAlertController(title: "Registration Error!", message: error.localizedDescription, preferredStyle: .alert)
+                let alertVC = UIAlertController(title: "Registration Error!", message: String(describing: error), preferredStyle: .alert)
                 let okayAction = UIAlertAction(title: "OK", style: .default) { _ in
                     DispatchQueue.global(qos: .background).async{ self.resetCaptureSession() }
                 }
@@ -93,7 +96,7 @@ final class QRScannerViewController: UIViewController, AVCaptureMetadataOutputOb
         }
     }
     
-    nonisolated fileprivate func resetCaptureSession(){//simply stopping and starting camera to let users try scanning again
+    nonisolated fileprivate func resetCaptureSession() {//simply stopping and starting camera to let users try scanning again
         captureSession.stopRunning()
         captureSession.startRunning()
     }
