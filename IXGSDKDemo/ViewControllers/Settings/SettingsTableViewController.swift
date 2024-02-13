@@ -47,8 +47,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingsListCell", for: indexPath)
-
         switch indexPath.row {
         case 0:
             self.performSegue(withIdentifier: Segue.updateName.rawValue, sender: self)
