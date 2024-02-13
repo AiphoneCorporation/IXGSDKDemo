@@ -51,7 +51,7 @@ class StationsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StationsTableViewController.cellId, for: indexPath)
-        if let station = filteredStations[safeIndex: indexPath.section] {
+        if let station = filteredStations[safeIndex: indexPath.row] {
             cell.textLabel?.text = station.name
             cell.detailTextLabel?.text = station.capabilityDescription
         }
