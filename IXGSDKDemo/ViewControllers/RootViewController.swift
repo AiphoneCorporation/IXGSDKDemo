@@ -34,6 +34,17 @@ class RootViewController: UIViewController {
             }
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Segue.qrScanner.rawValue:
+            segue.source.modalPresentationStyle = .fullScreen
+        case Segue.home.rawValue:
+            segue.source.modalPresentationStyle = .fullScreen
+        default:
+            break
+        }
+    }
 }
 
 extension RootViewController {

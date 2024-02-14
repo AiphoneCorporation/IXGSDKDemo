@@ -7,6 +7,7 @@
 
 import UIKit
 import PushKit
+import AiphoneIntercomCorePkg
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, PKPushRegistryDelegate {

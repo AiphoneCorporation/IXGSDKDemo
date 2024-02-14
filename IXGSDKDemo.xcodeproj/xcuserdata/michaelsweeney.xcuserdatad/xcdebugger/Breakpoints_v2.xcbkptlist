@@ -3,22 +3,4 @@
    uuid = "9C461478-F9BD-4861-BCE7-A8C0B4D72FBB"
    type = "1"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2A7A7CBF-4279-41A0-A7E9-E1E5FF1FEF6E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/IXGSDKDemo-eudwnjmftnztgwewzjqpmwfhiehs/SourcePackages/checkouts/AiphoneIntercomCorePkg/Sources/AiphoneIntercomCorePkg/Models/IXGAPI/IXGClient+Registration.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "getStatus()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>
