@@ -22,7 +22,6 @@ class MoveOutViewController: UIViewController {
                 
                 switch result {
                 case .success(_):
-                    self.dismiss(animated: true, completion: nil)
                     self.restartApplication()
                 case .failure(let error):
                     print(error)
@@ -34,5 +33,13 @@ class MoveOutViewController: UIViewController {
     }
     
     func restartApplication () {
+        // TODO: clean up the window heirarchy
+        performSegue(withIdentifier: Segue.deregistered.rawValue, sender: self)
+    }
+}
+
+extension MoveOutViewController {
+    enum Segue: String {
+        case deregistered = "appDeregisteredSegue"
     }
 }
