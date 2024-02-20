@@ -40,8 +40,18 @@ class UpdateNameViewController: UIViewController, UITextFieldDelegate {
             switch result {
                 
             case .success():
-                let alert = UIAlertController(title: "Name Updated", message: "Your name has been updated to \(newName!)", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                let message = "Your name has been updated to \(newName!) successfully!"
+                let attributedString = NSMutableAttributedString(string: message)
+                let range = (message as NSString).range(of: self.newName)
+                attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: range)
+                
+                let alert = UIAlertController(title: nil, message: "", preferredStyle: .alert)
+                alert.setValue(attributedString, forKey: "attributedMessage")
+                
+                let okayAction = UIAlertAction(title: "OK", style: .default) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                alert.addAction(okayAction)
                 self.present(alert, animated: true)
                 
             case .failure(let error):

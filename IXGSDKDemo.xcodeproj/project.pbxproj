@@ -16,7 +16,6 @@
 		ACECBDC62B2D0A41008C77B4 /* IXGSDKDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDC52B2D0A41008C77B4 /* IXGSDKDemoTests.swift */; };
 		ACECBDD02B2D0A41008C77B4 /* IXGSDKDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */; };
 		ACECBDD22B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */; };
-		CB7277322B73FAFE00F98800 /* MoveOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7277312B73FAFE00F98800 /* MoveOutViewController.swift */; };
 		CB7277342B73FB0B00F98800 /* UpdateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7277332B73FB0B00F98800 /* UpdateNameViewController.swift */; };
 		CBBD01332B60465100BAD5ED /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD01322B60465100BAD5ED /* CallViewController.swift */; };
 		CBCB4EF72B4F3C6D000CE58E /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CBCB4EF62B4F3C6D000CE58E /* SampleVideo.mp4 */; };
@@ -59,7 +58,6 @@
 		ACECBDCB2B2D0A41008C77B4 /* IXGSDKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IXGSDKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACECBDCF2B2D0A41008C77B4 /* IXGSDKDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITests.swift; sourceTree = "<group>"; };
 		ACECBDD12B2D0A41008C77B4 /* IXGSDKDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IXGSDKDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CB7277312B73FAFE00F98800 /* MoveOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveOutViewController.swift; sourceTree = "<group>"; };
 		CB7277332B73FB0B00F98800 /* UpdateNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameViewController.swift; sourceTree = "<group>"; };
 		CBBD01322B60465100BAD5ED /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		CBCB4EF62B4F3C6D000CE58E /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				CBE20C052B44AC1E00C66936 /* SettingsTableViewController.swift */,
-				CB7277312B73FAFE00F98800 /* MoveOutViewController.swift */,
 				CB7277332B73FB0B00F98800 /* UpdateNameViewController.swift */,
 			);
 			path = Settings;
@@ -317,7 +314,6 @@
 				CBEC27902B2D19D9003FBC6D /* QRScannerViewController.swift in Sources */,
 				CBE20C062B44AC1E00C66936 /* SettingsTableViewController.swift in Sources */,
 				CBE20C022B44AB3600C66936 /* RecordingsTableViewController.swift in Sources */,
-				CB7277322B73FAFE00F98800 /* MoveOutViewController.swift in Sources */,
 				CBE20C002B44AA8B00C66936 /* StationsTableViewController.swift in Sources */,
 				CB7277342B73FB0B00F98800 /* UpdateNameViewController.swift in Sources */,
 				CBEC27962B320C7A003FBC6D /* RegistrationConfirmationViewController.swift in Sources */,
@@ -502,7 +498,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48MUA29SAN;
+				DEVELOPMENT_TEAM = MY2DDQXDRN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IXGSDKDemo/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Gimme Camera PLZ KTHKS";
@@ -532,7 +528,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48MUA29SAN;
+				DEVELOPMENT_TEAM = MY2DDQXDRN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IXGSDKDemo/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Gimme Camera PLZ KTHKS";

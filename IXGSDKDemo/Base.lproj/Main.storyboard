@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F9U-vI-KCB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F9U-vI-KCB">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,11 +33,11 @@
             <objects>
                 <viewController id="ACU-6T-WRR" customClass="RegistrationConfirmationViewController" customModule="IXGSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3DT-R9-ARo">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vip-PI-9xS" userLabel="confirmationButton">
-                                <rect key="frame" x="98.333333333333329" y="727.66666666666663" width="196.33333333333337" height="34.333333333333371"/>
+                                <rect key="frame" x="98.333333333333329" y="737.66666666666663" width="196.33333333333337" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Register"/>
                                 <connections>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SmI-HX-Rqi">
-                                <rect key="frame" x="39.333333333333343" y="281.66666666666669" width="314.33333333333326" height="62.333333333333314"/>
+                                <rect key="frame" x="39.333333333333343" y="285" width="314.33333333333326" height="62.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set App Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYC-yY-ecU" userLabel="stationNameLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="314.33333333333331" height="20.333333333333332"/>
@@ -137,45 +137,12 @@
                     <navigationItem key="navigationItem" id="seX-Le-1Zx"/>
                     <connections>
                         <segue destination="wQj-H8-6d5" kind="showDetail" identifier="updateName" id="Red-1e-UxJ"/>
-                        <segue destination="PXX-gV-j19" kind="showDetail" identifier="moveOut" id="qo8-Ee-Qlq"/>
+                        <segue destination="F9U-vI-KCB" kind="presentation" identifier="appDeregisteredSegue" modalPresentationStyle="fullScreen" id="xDr-zK-7Yx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5y-Qc-Gde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5050" y="1832"/>
-        </scene>
-        <!--Move Out View Controller-->
-        <scene sceneID="uxX-vP-QH6">
-            <objects>
-                <viewController id="PXX-gV-j19" customClass="MoveOutViewController" customModule="IXGSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8u4-y0-Kak">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17f-0g-Iri">
-                                <rect key="frame" x="98.333333333333329" y="403.66666666666669" width="196.33333333333337" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Move out"/>
-                                <connections>
-                                    <action selector="moveButton:" destination="PXX-gV-j19" eventType="touchUpInside" id="bb4-Up-rPx"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="SSk-tl-ptp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="17f-0g-Iri" firstAttribute="centerX" secondItem="SSk-tl-ptp" secondAttribute="centerX" id="9XK-Re-7mb"/>
-                            <constraint firstItem="17f-0g-Iri" firstAttribute="centerY" secondItem="SSk-tl-ptp" secondAttribute="centerY" id="h70-Iw-uGD"/>
-                            <constraint firstItem="17f-0g-Iri" firstAttribute="width" secondItem="8u4-y0-Kak" secondAttribute="width" multiplier="0.5" id="ybR-nZ-OHp"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="tCG-Ti-5xR" kind="presentation" identifier="appDeregisteredSegue" modalPresentationStyle="fullScreen" id="iPu-lm-Im0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VGx-2c-Sis" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6952" y="2237"/>
         </scene>
         <!--Update Name View Controller-->
         <scene sceneID="nbV-Fq-zmE">
@@ -313,7 +280,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TD3-gL-hTN">
-                                <rect key="frame" x="16" y="418.33333333333331" width="361" height="40.333333333333314"/>
+                                <rect key="frame" x="16" y="406" width="361" height="40.333333333333314"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-It-s36">
                                         <rect key="frame" x="170.66666666666666" y="0.0" width="20" height="20"/>
@@ -440,10 +407,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="26e-dx-puE"/>
         <segue reference="GGS-As-G89"/>
         <segue reference="dnC-hY-tS1"/>
-        <segue reference="iPu-lm-Im0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="123"/>

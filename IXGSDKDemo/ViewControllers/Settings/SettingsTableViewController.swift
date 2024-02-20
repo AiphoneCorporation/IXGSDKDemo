@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AiphoneIntercomCorePkg
 
 class SettingsTableViewController: UITableViewController {
 
@@ -38,7 +39,7 @@ class SettingsTableViewController: UITableViewController {
         case 0:
             cell.textLabel?.text = "Update Name"
         case 1:
-            cell.textLabel?.text = "Move Out"
+            cell.textLabel?.text = "Disconnect From IXG"
         default:
             print("Error: No setting found at index \(indexPath.row)")
         }
@@ -51,16 +52,39 @@ class SettingsTableViewController: UITableViewController {
         case 0:
             self.performSegue(withIdentifier: Segue.updateName.rawValue, sender: self)
         case 1:
-            self.performSegue(withIdentifier: Segue.moveOut.rawValue, sender: self)
+            disconnectFromIXG()
         default:
             print("Error: No setting found at index \(indexPath.row)")
         }
+    }
+    
+    func disconnectFromIXG(){
+        let alert = UIAlertController(title: "Disconnect from IXG", message: "This will unregister you from the IXG system and reset the app.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
+            Task{
+                let result = await RegistrationManager(session: .shared).deregister()
+                
+                switch result {
+                case .success(_):
+                    self.restartApplication()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    func restartApplication () {
+        // TODO: clean up the window heirarchy
+        performSegue(withIdentifier: Segue.deregistered.rawValue, sender: self)
     }
 }
 
 extension SettingsTableViewController {
     enum Segue: String {
         case updateName = "updateName"
-        case moveOut = "moveOut"
+        case deregistered = "appDeregisteredSegue"
     }
 }
