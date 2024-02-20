@@ -36,37 +36,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Update Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-dv-OEt" userLabel="stationNameTextField">
-                                <rect key="frame" x="138" y="537.33333333333337" width="117" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vip-PI-9xS" userLabel="confirmationButton">
-                                <rect key="frame" x="153" y="657" width="87" height="35"/>
+                                <rect key="frame" x="98.333333333333329" y="727.66666666666663" width="196.33333333333337" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Register"/>
                                 <connections>
                                     <action selector="confirmationButtonTapped:" destination="ACU-6T-WRR" eventType="touchUpInside" id="bRr-ZW-S2I"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYC-yY-ecU" userLabel="stationNameLabel">
-                                <rect key="frame" x="143.66666666666666" y="312.66666666666669" width="106" height="216.66666666666669"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SmI-HX-Rqi">
+                                <rect key="frame" x="39.333333333333343" y="281.66666666666669" width="314.33333333333326" height="62.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set App Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYC-yY-ecU" userLabel="stationNameLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="314.33333333333331" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-dv-OEt" userLabel="stationNameTextField">
+                                        <rect key="frame" x="0.0" y="28.333333333333314" width="314.33333333333331" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KKY-zF-sQg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qYC-yY-ecU" firstAttribute="top" secondItem="KKY-zF-sQg" secondAttribute="top" constant="312.66666666666669" id="DBn-wH-V8S"/>
-                            <constraint firstItem="KKY-zF-sQg" firstAttribute="bottom" secondItem="vip-PI-9xS" secondAttribute="bottom" constant="150" id="Nao-cI-wvf"/>
-                            <constraint firstItem="bdV-dv-OEt" firstAttribute="centerX" secondItem="3DT-R9-ARo" secondAttribute="centerX" id="NoY-gN-uIm"/>
-                            <constraint firstItem="bdV-dv-OEt" firstAttribute="top" secondItem="qYC-yY-ecU" secondAttribute="bottom" constant="8" id="Z3k-pO-yhi"/>
-                            <constraint firstItem="qYC-yY-ecU" firstAttribute="centerX" secondItem="3DT-R9-ARo" secondAttribute="centerX" id="eVH-Ow-kDd"/>
-                            <constraint firstItem="vip-PI-9xS" firstAttribute="centerX" secondItem="3DT-R9-ARo" secondAttribute="centerX" id="hib-Ln-pCM"/>
-                            <constraint firstItem="qYC-yY-ecU" firstAttribute="centerY" secondItem="3DT-R9-ARo" secondAttribute="centerY" id="io2-h5-HcT"/>
-                            <constraint firstItem="KKY-zF-sQg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qYC-yY-ecU" secondAttribute="trailing" symbolic="YES" id="oLX-hq-cDc"/>
+                            <constraint firstItem="vip-PI-9xS" firstAttribute="centerX" secondItem="KKY-zF-sQg" secondAttribute="centerX" id="DCv-em-NXp"/>
+                            <constraint firstItem="SmI-HX-Rqi" firstAttribute="top" secondItem="KKY-zF-sQg" secondAttribute="bottom" multiplier="1:3" constant="1" id="I6C-f2-9ft"/>
+                            <constraint firstItem="vip-PI-9xS" firstAttribute="width" secondItem="3DT-R9-ARo" secondAttribute="width" multiplier="0.5" id="jN5-tA-9Tb"/>
+                            <constraint firstItem="SmI-HX-Rqi" firstAttribute="width" secondItem="3DT-R9-ARo" secondAttribute="width" multiplier="0.8" id="mwv-iY-lDj"/>
+                            <constraint firstItem="KKY-zF-sQg" firstAttribute="bottom" secondItem="vip-PI-9xS" secondAttribute="bottom" constant="80" id="p1n-a2-qp8"/>
+                            <constraint firstItem="SmI-HX-Rqi" firstAttribute="centerX" secondItem="KKY-zF-sQg" secondAttribute="centerX" id="sz4-Ve-fYp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A1p-hq-g4A"/>
@@ -150,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17f-0g-Iri">
-                                <rect key="frame" x="149" y="403.66666666666669" width="95" height="35"/>
+                                <rect key="frame" x="98.333333333333329" y="403.66666666666669" width="196.33333333333337" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Move out"/>
                                 <connections>
@@ -163,6 +166,7 @@
                         <constraints>
                             <constraint firstItem="17f-0g-Iri" firstAttribute="centerX" secondItem="SSk-tl-ptp" secondAttribute="centerX" id="9XK-Re-7mb"/>
                             <constraint firstItem="17f-0g-Iri" firstAttribute="centerY" secondItem="SSk-tl-ptp" secondAttribute="centerY" id="h70-Iw-uGD"/>
+                            <constraint firstItem="17f-0g-Iri" firstAttribute="width" secondItem="8u4-y0-Kak" secondAttribute="width" multiplier="0.5" id="ybR-nZ-OHp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -202,7 +206,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pu-jp-uTC" userLabel="updateButton">
-                                <rect key="frame" x="156.66666666666666" y="552.33333333333337" width="80" height="34.333333333333371"/>
+                                <rect key="frame" x="98.333333333333329" y="552.33333333333337" width="196.33333333333337" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Update"/>
                                 <connections>
@@ -214,6 +218,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0yL-Gp-BOL" firstAttribute="trailing" secondItem="HGh-vN-OCL" secondAttribute="trailing" constant="20" id="2S9-9f-ByO"/>
+                            <constraint firstItem="0pu-jp-uTC" firstAttribute="width" secondItem="PXZ-g5-npj" secondAttribute="width" multiplier="0.5" id="7Fk-ds-xb4"/>
                             <constraint firstItem="0yL-Gp-BOL" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0pu-jp-uTC" secondAttribute="bottom" constant="16" id="8eL-4L-YcZ"/>
                             <constraint firstItem="HGh-vN-OCL" firstAttribute="leading" secondItem="0yL-Gp-BOL" secondAttribute="leading" constant="20" id="Apd-eo-sgd"/>
                             <constraint firstItem="0pu-jp-uTC" firstAttribute="top" secondItem="HGh-vN-OCL" secondAttribute="bottom" constant="100" id="emt-Ud-ywR"/>
@@ -435,6 +440,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="26e-dx-puE"/>
         <segue reference="GGS-As-G89"/>
         <segue reference="dnC-hY-tS1"/>
         <segue reference="iPu-lm-Im0"/>

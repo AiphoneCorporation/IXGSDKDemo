@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AiphoneCorporation/AiphoneIntercomCorePkg",
       "state" : {
-        "revision" : "3924a5caa76b4bc003eab720b6e62ab2fe9f489e",
-        "version" : "0.0.67"
+        "revision" : "63b7b5c30fdb0a5215df1a845528fda47ba2d3a7",
+        "version" : "0.0.70"
       }
     }
   ],
